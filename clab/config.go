@@ -195,6 +195,11 @@ type Endpoint struct {
 	EndpointName string
 }
 
+func (link *Link) String() string {
+	return fmt.Sprintf("link [%s:%s, %s:%s]", link.A.Node.ShortName,
+		link.A.EndpointName, link.B.Node.ShortName, link.B.EndpointName)
+}
+
 // initMgmtNetwork sets management network config
 func (c *CLab) initMgmtNetwork() error {
 	if c.Config.Mgmt.Network == "" {
